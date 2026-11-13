@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lars Felder</title>
+<meta name="description" content="PhD candidate in economics at the Berlin School of Economics, FU Berlin and DIW Berlin, working on labor, applied micro and environmental economics.">
+<link rel="canonical" href="https://lfelderecon.github.io/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="favicon.png">
+<!-- Link previews when the page is shared (LinkedIn, Bluesky, Slack, WhatsApp, ...) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lfelderecon.github.io/">
+<meta property="og:title" content="Lars Felder">
+<meta property="og:description" content="PhD candidate in economics at the Berlin School of Economics, FU Berlin and DIW Berlin, working on labor, applied micro and environmental economics.">
+<meta property="og:image" content="https://lfelderecon.github.io/LFelder_portrait.jpg">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="600">
+<meta property="og:image:alt" content="Portrait of Lars Felder">
+<meta name="twitter:card" content="summary">
+<style>
+  :root {
+    --fg:#1a1a1a; --muted:#6b6b6b; --accent:#8b1e1e; --bg:#ffffff;
+    --rule:#e6e6e6; --btn-bg:#f6eded; --btn-fg:#8b1e1e;
+    --icon-moon:inline; --icon-sun:none;
+    --nav-h:46px; /* updated by script to the real nav bar height */
+    color-scheme:light;
+  }
+  /* Dark mode: follows the system setting unless the visitor picked light;
+     the toggle button sets data-theme on <html> to override either way. */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --fg:#e8e8e8; --muted:#9a9a9a; --accent:#e58a8a; --bg:#161616;
+      --rule:#2c2c2c; --btn-bg:#2a1c1c; --btn-fg:#e58a8a;
+      --icon-moon:none; --icon-sun:inline;
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --fg:#e8e8e8; --muted:#9a9a9a; --accent:#e58a8a; --bg:#161616;
+    --rule:#2c2c2c; --btn-bg:#2a1c1c; --btn-fg:#e58a8a;
+    --icon-moon:none; --icon-sun:inline;
+    color-scheme:dark;
+  }
+  * { box-sizing:border-box; }
+  html { font-size:100%; scroll-behavior:smooth; scroll-padding-top:calc(var(--nav-h) + 12px); }
+  /* Scale the whole page up on large screens. Sizes below are in rem, so text,
+     column width, buttons, icons and photo all grow together and the line
+     length (and with it readability) stays the same. */
+  @media (min-width:1440px) { html { font-size:106.25%; } }  /* body text ~18px, column ~810px */
+  @media (min-width:1920px) { html { font-size:112.5%; } }   /* body text ~19px, column ~855px */
+  @media (min-width:2560px) { html { font-size:125%; } }     /* body text ~21px, column ~950px */
+  body { margin:0; background:var(--bg); color:var(--fg);
+         font:1.0625rem/1.6 Georgia, "Times New Roman", serif; }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+
+  /* Sticky top nav */
+  nav { position:sticky; top:0; z-index:10; background:var(--bg);
+        border-bottom:1px solid var(--rule); }
+  nav .inner { max-width:47.5rem; margin:0 auto; padding:12px 16px;
+               display:flex; gap:20px; flex-wrap:wrap; align-items:center;
+               font:.9375rem/1.4 system-ui, -apple-system, sans-serif; }
+  nav .name { font-weight:600; color:var(--fg); margin-right:auto; }
+  .theme-toggle { background:none; border:0; padding:2px; margin:0; cursor:pointer;
+                  color:var(--fg); display:inline-flex; align-items:center; }
+  .theme-toggle:hover { color:var(--accent); }
+  .theme-toggle svg { width:1.125rem; height:1.125rem; }
+  .theme-toggle .icon-moon { display:var(--icon-moon); }
+  .theme-toggle .icon-sun { display:var(--icon-sun); }
+
+  main { max-width:47.5rem; margin:0 auto; padding:40px 16px 80px; }
+
+  header { display:flex; gap:28px; align-items:center; flex-wrap:wrap; }
+  header img { width:11.25rem; height:11.25rem; border-radius:50%; object-fit:cover;
+               background:var(--rule); }
+  .portrait { margin:0; text-align:center; }
+  .portrait figcaption { font:9px/1.2 system-ui, sans-serif; color:var(--muted);
+                         opacity:.7; margin-top:3px; }
+  h1 { margin:0; font-size:2rem; font-weight:normal; }
+  .pronouns { font-size:1rem; color:var(--muted); }
+  .sub { color:var(--muted); margin:2px 0 0; }
+  .links { margin-top:12px; display:flex; gap:18px; align-items:center; }
+  .links a { display:inline-flex; color:var(--accent); }
+  .links a:hover { opacity:.7; }
+  .links svg { width:1.5rem; height:1.5rem; fill:currentColor; }
+
+  h2 { font-size:1.3rem; text-transform:uppercase; letter-spacing:.09em;
+       color:var(--muted); font-weight:normal; border-bottom:1px solid var(--rule);
+       padding:10px 0 6px; margin:46px 0 18px;
+       /* stays pinned under the nav bar while its section is on screen */
+       position:sticky; top:var(--nav-h); z-index:5; background:var(--bg); }
+  h3 { font-size:1.15rem; font-weight:normal; font-style:italic; margin:28px 0 12px; }
+
+  .item { margin-bottom:22px; }
+  .item > p { font-size:.95rem; margin:6px 0 0; }
+  .title { font-weight:bold; }
+  .trans { color:var(--muted); }
+  .versions { margin-top:6px; }
+  .versions .btn { margin:0 4px 0 0; }
+  .meta { color:var(--muted); font-size:.95rem; }
+  .status { color:var(--muted); font-size:.9rem; font-style:italic; white-space:nowrap; }
+
+  .btn { display:inline-block; padding:1px 10px; margin-left:6px;
+         font:.8125rem/1.7 system-ui, sans-serif; border:1px solid var(--btn-fg);
+         border-radius:4px; background:var(--btn-bg); color:var(--btn-fg);
+         vertical-align:2px; }
+  .btn:hover { text-decoration:none; filter:brightness(0.95); }
+  /* Greyed-out button for drafts that are not available yet */
+  .btn.disabled { border-color:var(--muted); color:var(--muted); background:transparent;
+                  opacity:.6; cursor:default; }
+  .btn.disabled:hover { filter:none; }
+
+  details { margin-top:4px; }
+  details summary { cursor:pointer; color:var(--accent); width:max-content;
+                    font:.875rem system-ui, sans-serif; }
+  details p { font-size:.95rem; margin:6px 0 0; }
+
+  ul.plain { list-style:none; padding:0; margin:0; }
+  ul.plain li { margin-bottom:10px; }
+  ul.bullets { margin:4px 0 0; padding-left:20px; }
+
+  address { font-style:normal; }
+  footer { margin-top:64px; color:var(--muted); font-size:.85rem; }
+</style>
+<script>
+  /* Apply a saved theme choice before the page renders (avoids a flash). */
+  try {
+    var savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  } catch (e) {}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <a class="name" href="#top">Lars Felder</a>
+    <a href="#research">Research</a>
+    <a href="#policy">Policy</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#other">Other</a>
+    <a href="#contact">Contact</a>
+    <a href="Felder_CV.pdf">CV</a>
+    <button type="button" class="theme-toggle" id="theme-toggle"
+            aria-label="Toggle dark mode" title="Switch between light and dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<main id="top">
+
+  <header>
+    <figure class="portrait">
+      <img src="LFelder_portrait.jpg" alt="Portrait of Lars Felder">
+      <figcaption>© DIW Berlin / F.Schuh</figcaption>
+    </figure>
+    <div>
+      <h1>Lars Felder <span class="pronouns">(he/him)</span></h1>
+      <p class="sub">PhD Candidate in Economics · DIW Berlin</p>
+      <!-- Icons: Font Awesome Free 6 by @fontawesome – https://fontawesome.com/license/free (CC BY 4.0) -->
+      <div class="links">
+        <a href="mailto:lfelder@diw.de" title="Email" aria-label="Email">
+          <svg viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+        </a>
+        <a href="https://scholar.google.com/citations?user=XkGiZTsAAAAJ&amp;hl=en" title="Google Scholar" aria-label="Google Scholar">
+          <svg viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M390.9 298.5c0 0 0 .1 .1 .1c9.2 19.4 14.4 41.1 14.4 64C405.3 445.1 338.5 512 256 512s-149.3-66.9-149.3-149.3c0-22.9 5.2-44.6 14.4-64h0c1.7-3.6 3.6-7.2 5.6-10.7c4.4-7.6 9.4-14.7 15-21.3c27.4-32.6 68.5-53.3 114.4-53.3c33.6 0 64.6 11.1 89.6 29.9c9.1 6.9 17.4 14.7 24.8 23.5c5.6 6.6 10.6 13.8 15 21.3c2 3.4 3.8 7 5.5 10.5zm26.4-18.8c-30.1-58.4-91-98.4-161.3-98.4s-131.2 40-161.3 98.4L0 202.7 256 0 512 202.7l-94.7 77.1z"/></svg>
+        </a>
+        <a href="https://github.com/lfelderecon" title="GitHub" aria-label="GitHub">
+          <svg viewBox="0 0 496 512" aria-hidden="true" focusable="false"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+        </a>
+        <a href="https://bsky.app/profile/larsfelder.bsky.social" title="Bluesky" aria-label="Bluesky">
+          <svg viewBox="0 0 576 512" aria-hidden="true" focusable="false"><path d="M407.8 294.7c-3.3-.4-6.7-.8-10-1.3c3.4 .4 6.7 .9 10 1.3zM288 227.1C261.9 176.4 190.9 81.9 124.9 35.3C61.6-9.4 37.5-1.7 21.6 5.5C3.3 13.8 0 41.9 0 58.4S9.1 194 15 213.9c19.5 65.7 89.1 87.9 153.2 80.7c3.3-.5 6.6-.9 10-1.4c-3.3 .5-6.6 1-10 1.4C74.3 308.6-9.1 342.8 100.3 464.5C220.6 589.1 265.1 437.8 288 361.1c22.9 76.7 49.2 222.5 185.6 103.4c102.4-103.4 28.1-156-65.8-169.9c-3.3-.4-6.7-.8-10-1.3c3.4 .4 6.7 .9 10 1.3c64.1 7.1 133.6-15.1 153.2-80.7C566.9 194 576 75 576 58.4s-3.3-44.7-21.6-52.9c-15.8-7.1-40-14.9-103.2 29.8C385.1 81.9 314.1 176.4 288 227.1z"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <p>I’m a PhD candidate in Economics at the
+  <a href="https://berlinschoolofeconomics.de/home">Berlin School of Economics</a> and
+  <a href="https://www.wiwiss.fu-berlin.de/en/index.html">Freie Universität Berlin</a>.
+  I also work in the
+  <a href="https://www.diw.de/en/diw_01.c.617114.en/public_economics_department.html">Public Economics Department</a>
+  at the German Institute for Economic Research (DIW Berlin). My research interests include
+  labor economics, applied microeconomics and environmental economics.</p>
+
+  <p>If you’d like to chat or grab a coffee, please <a href="mailto:lfelder@diw.de">reach out</a> anytime!</p>
+
+  <!-- ===================== RESEARCH ===================== -->
+  <section id="research">
+  <h2>Research</h2>
+
+  <h3>Forthcoming</h3>
+  <div class="item">
+    <span class="title">Fifty-five Crowd-Sourced Designs Assessing Carbon Pricing Support</span>
+    <div class="meta">with Armando Holzknecht, Rene Schwaiger, Esther Blanco, Jürgen Huber, Michael Kirchler, and many others · Accepted at <em>Nature Human Behaviour</em></div>
+    <details><summary>Abstract</summary>
+      <p>A carbon price is an effective and cost-efficient policy to mitigate emissions, yet low public acceptance and limited political support remain major barriers to its widespread implementation. This crowd-sourced “many-designs” project presents results from 55 behavioral interventions on real-world support for carbon pricing, independently developed by international research teams. By implementing the interventions simultaneously with almost 20,000 U.S. residents, this pre-registered study shows very small positive but statistically significant effects of behavioral interventions on real-world support, and stated support, including the willingness to endorse a carbon price that internalizes the social costs of $120 per ton of CO<sub>2</sub> emissions (Cohen’s <em>d</em>’s: 0.04–0.08; between 1.1–2.4 percentage points in increased support across outcomes). Furthermore, the results reveal low-to-medium between-study heterogeneity (<em>τ</em>: 0.07–0.12). Lastly, we identify strong overconfidence among research teams regarding the expected effects of their interventions and those of their peers, indicating a miscalibration of community expectations.</p>
+    </details>
+  </div>
+
+  <h3>Work in Progress</h3>
+
+  <div class="item">
+    <span class="title">Early Retirement for Early Starters – A Well-Targeted Policy for People with High Job Demand?</span>
+    <a class="btn" href="https://hdl.handle.net/10419/302369">Draft</a>
+    <div class="meta">with Hermann Buslei, Johannes Geyer and Peter Haan</div>
+    <details><summary>Abstract</summary>
+      <p>Despite growing demographic pressures, a reform in Germany has lowered the full retirement age (FRA) for early starters. In this paper we analyze whether the reform was well targeted. Specifically, we study if the early retirement scheme benefits workers with high job strain or if workers with better jobs and the potential to increase employment are the main beneficiaries of this pathway. For the empirical analysis we use high-quality administrative data from the Federal Employment Agency covering the complete employment biographies of individuals and merge information about the job strain at the occupational level. We exploit policy variation induced by the pension reform using two complementary identification strategies: Difference in Differences and Regression Discontinuity Design. The reform reduced the average labor market exit age by six to seven months, corresponding to 3 to 3.5 months for each year the FRA was lowered. The effect is stronger for individuals working in demanding occupations and for individuals with higher incomes. Disentangling job strain into physical and psychosocial job strain does not reveal different effects between the two measures of job demand.</p>
+    </details>
+  </div>
+
+  <div class="item">
+    <span class="title">Firm Adjustment to a Loss of Experienced Workers</span>
+    <span class="btn disabled" title="Draft not yet available">Draft</span>
+    <span class="status">expected Q2 2027</span>
+    <div class="meta">with Johannes Geyer, Peter Haan, Jan Nimczik and Lennert Peede</div>
+    <details><summary>Abstract</summary>
+      <p>Experienced workers accumulate skills over their careers that less experienced workers may not easily substitute. In this paper we analyze how the loss of experienced workers affects firms. We exploit a 2014 reform in Germany that allowed workers with long contribution histories to retire early without deductions, inducing a significant outflow of experienced workers from exposed firms. Specifically, we study whether firms replace departing workers or whether the loss of experience translates into lower employment and output. For the empirical analysis we use high-quality administrative data from the Federal Employment Agency linking the complete employment biographies of workers to their establishments. Exposure to the reform is determined by the eligibility of firms’ pre-reform workforce, which we exploit in a matched difference-in-differences design. Exposed firms do not fully replace departing workers, and their employment declines persistently, especially in tight labor markets. Their sales, value added and labor productivity also decline, suggesting that experienced workers are complements to less experienced workers in production.</p>
+    </details>
+  </div>
+
+  <div class="item">
+    <span class="title">Price Salience and the Demand for Car Fuel</span>
+    <span class="btn disabled" title="Draft not yet available">Draft</span>
+    <span class="status">expected Q1 2027</span>
+    <div class="meta">with Renke Schmacker</div>
+    <details><summary>Abstract</summary>
+      <p>Few prices are as familiar to consumers as the price of fuel. Whether this familiarity shapes how drivers respond to price increases matters for carbon pricing in road transport. We study this in a survey experiment with more than 3,100 German car drivers in which an identical fuel price increase is presented as a higher price per liter, as higher monthly fuel expenditures, or both. Stated fuel demand elasticities are substantially larger when the per-liter price is shown. Drivers overestimate the expenditure impact of price increases by two thirds on average, but correcting this misperception closes only a small part of the gap. The evidence instead points to price salience: drivers recall per-liter prices precisely but their fuel expenditures only vaguely, and prices above a familiar reference level draw disproportionate attention. Because our initial survey wave was fielded just before the 2026 fuel price shock, we were able to re-survey the same drivers once prices had risen. In this second wave, the salience effect sets in at a higher reference price. This suggests that price norms shift with the prices drivers experience, which has implications for the political economy of pricing carbon-intensive fuels.</p>
+    </details>
+  </div>
+
+  <div class="item">
+    <span class="title">Information, Justice and Public Support for Carbon Tax-and-Dividend Policies: Experimental Evidence from Germany</span>
+    <a class="btn" href="https://www.diw.de/de/diw_01.c.1008593.de/publikationen/diskussionspapiere/2026_2164/information__justice_and_public_support_for_carbon_tax-and-divided_policies__experimental_evidence_from_germany.html">Draft</a>
+    <span class="status">undergoing major revisions for R&amp;R</span>
+    <div class="meta">with Sandra Bohmann, Peter Haan, Merve Kucuk, Laura Schmitz and Jürgen Schupp · DIW Discussion Paper 2164 (2026)</div>
+    <details><summary>Abstract</summary>
+      <p>Carbon pricing can deliver large emissions reductions, but public opposition remains a key barrier. We study how support for carbon tax-and-transfer schemes depends on policy design and information provision in a large-scale survey experiment with German respondents. Explaining the policy mechanism robustly increases support across price levels. Information on distributional consequences raises support only when revenue recycling is sufficiently generous, and can secure majority approval even at high carbon prices. Individualized cost information increases support among those who overestimated costs, with no backlash for under-estimators when redistribution is high. These effects operate through distinct fairness channels: information shapes both self- and other-regarding justice perceptions, and while self-interest predicts support, other-regarding concerns — particularly for the poor — are an independent driver of policy acceptance. Our findings suggest that political feasibility hinges not only on policy design, but on making the mechanism understood and its distributional implications visible.</p>
+    </details>
+  </div>
+
+  <div class="item">
+    <span class="title">Understanding Fuel Demand Elasticities Through Stated Preferences</span>
+    <span class="btn disabled" title="Draft not yet available">Draft</span>
+    <span class="status">expected Q1 2027</span>
+    <div class="meta">with Peter Haan, Gedeão Locks and Renke Schmacker</div>
+  </div>
+
+  </section>
+
+  <!-- ===================== POLICY ===================== -->
+  <section id="policy">
+  <h2>Policy Papers</h2>
+
+  <div class="item">
+    <span class="title">Regional Climate Dividend Provides Relief to Rural Households, but Hardship Cases Remain</span>
+    <div class="meta">with Stefan Bach, Rebecca Engelhardt, Peter Haan and Renke Schmacker · DIW Weekly Report 27/28/2025</div>
+    <div class="versions">
+      <a class="btn" href="https://www.diw.de/de/diw_01.c.967525.de/publikationen/weekly_reports/2025_27_1/regional_climate_dividend_provides_relief_to_rural_households__but_hardship_cases_remain.html">English Version</a>
+      <a class="btn" href="https://www.diw.de/de/diw_01.c.967000.de/publikationen/wochenberichte/2025_27_2/regionalisiertes_klimageld_entlastet_haushalte_in_laendlichen_raeumen__problem_der_haertefaelle_bleibt.html">German Version</a></div>
+    <details><summary>Abstract</summary>
+      <p>The previous federal government coalition had planned to pay private households a climate dividend to offset rising carbon prices; a payout process was even prepared. However, the climate dividend is nowhere to be seen in the new federal government’s coalition agreement. In the long term, a social compensation mechanism will be important, as prices for fossil and heating fuels will continue to rise due to the European Emissions Trading System (EU-ETS2). The simulations in this Weekly Report show that a climate dividend would contribute significantly to offsetting the financial burden from rising carbon prices, especially for low-earning households, while simultaneously maintaining the incentive of the price signal. Moreover, there are structural differences between urban and rural areas, which a regionally staggered climate dividend can account for. According to the present calculations, such staggering lowers the share of social hardship cases in rural areas, while increasing the share of them in cities. Although a regionally staggered climate dividend may not help to offset hardship cases overall, it could boost acceptance of carbon pricing in rural areas. To increase the targeted effect, the climate dividend could be reduced for higher incomes, which would open up additional fiscal leeway for relieving social hardship cases.</p>
+    </details>
+  </div>
+
+  <div class="item">
+    <span class="title" lang="de">Mehr Klarheit schaffen: Klimageld als sozialer Ausgleich bei höheren CO<sub>2</sub>-Preisen</span>
+    <span class="trans">[Creating More Clarity: A Climate Dividend as Social Compensation for Higher Carbon Prices]</span>
+    <div class="meta">with Sandra Bohmann, Peter Haan, Claudia Kemfert, Merve Kucuk, Laura Schmitz and Jürgen Schupp · DIW Wochenbericht 6/2025</div>
+    <div class="versions">
+      <a class="btn" href="https://www.diw.de/de/diw_01.c.935747.de/publikationen/wochenberichte/2025_06_1/mehr_klarheit_schaffen__klimageld_als_sozialer_ausgleich_bei_hoeheren_co___-preisen.html">German Version</a></div>
+    <details><summary>Abstract (German)</summary>
+      <p lang="de">Aktuelle Befragungsergebnisse zeigen, dass nur rund die Hälfte aller Erwachsenen in Deutschland einer pauschalen Rückerstattung von 80 Prozent der Einnahmen aus der CO<sub>2</sub>-Bepreisung in Form eines Klimageldes zustimmen würde. Sie belegen aber auch, dass ein angemessen hohes Klimageld selbst bei deutlich höheren CO<sub>2</sub>-Preisen zu einer höheren Akzeptanz führt. Derzeit vertritt noch knapp die Hälfte der Befragten eine eher ambivalente, also leicht zustimmende oder leicht ablehnende Meinung zum Klimageld. Diejenigen, die eine Rückerstattung von 80 Prozent der Einnahmen aus der zum Befragungszeitpunkt geltenden CO<sub>2</sub>-Bepreisung ablehnen, bekunden vor allem ihre generelle Ablehnung der CO<sub>2</sub>-Bepreisung. Als weiterer Grund wird die Skepsis hinsichtlich der klimapolitischen Wirksamkeit des betrachteten Klimagelds genannt. Der Grad der Zustimmung variiert zudem hinsichtlich einiger soziodemographischer Merkmale. In Anbetracht der absehbar steigenden CO<sub>2</sub>-Preise wird ein sozialer Ausgleich beispielsweise in Form eines Klimageldes notwendig sein. Die Studienergebnisse zeigen, wie wichtig es ist, die vorhandenen Bedenken zur klimapolitischen Wirksamkeit und der gerechten Verteilung der Kosten zu adressieren. Hierzu müssen die Ausgestaltung und Wirksamkeit des Klimageldes besser erläutert werden.</p>
+    </details>
+  </div>
+
+  <div class="item">
+    <span class="title" lang="de">Rente nach 45 Jahren: Auch Personen mit geringer Arbeitsbelastung gehen frühzeitig abschlagsfrei in Ruhestand</span>
+    <span class="trans">[Retirement after 45 Years: People with Low Job Demands Also Retire Early without Pension Deductions]</span>
+    <div class="meta">with Hermann Buslei, Johannes Geyer and Peter Haan · DIW Wochenbericht 48/2024</div>
+    <div class="versions">
+      <a class="btn" href="https://www.diw.de/de/diw_01.c.927861.de/publikationen/wochenberichte/2024_48_1/rente_nach_45_jahren__auch_personen_mit_geringer_arbeitsbelastung_gehen_fruehzeitig_abschlagsfrei_in_ruhestand.html">German Version</a></div>
+    <details><summary>Abstract (German)</summary>
+      <p lang="de">Fast ein Drittel der Personen, die neu in Altersrente gehen, nutzt derzeit die Möglichkeit eines frühzeitigen Renteneintritts ohne Abschläge nach einer besonders langen Erwerbskarriere. Häufig wird diese Art der – in der breiten Öffentlichkeit als „Rente mit 63“ bekannten – vorgezogenen Altersrente für besonders langjährig Versicherte mit Personen assoziiert, die lange schwer gearbeitet haben. Wie dieser Wochenbericht zeigt, ist die Dauer der Erwerbskarriere aber nur ein sehr grober Indikator für die Belastungen, die mit einer Beschäftigung einhergehen: Die beruflichen Belastungen fallen im Durchschnitt nämlich insbesondere bei einer kürzeren Erwerbskarriere hoch aus, während sie bei einer längeren Karriere oft eher niedrig sind. Aus sozialpolitischer Perspektive ist es nachvollziehbar, im Kontext steigender Regelaltersgrenzen Möglichkeiten zu entwickeln, die besonders belasteten Personen einen früheren Rentenzugang erlauben. Das ist auch in anderen Ländern, die die Altersgrenzen angehoben haben, zu beobachten. Allerdings ist die Dauer der Erwerbstätigkeit kein hinreichend guter Indikator. Zielgerichteter wäre ein Instrument, das an der Beschäftigungsfähigkeit der Versicherten ansetzt.</p>
+    </details>
+  </div>
+
+  <div class="item">
+    <span class="title">Facilitating the Transport and Heating Transition: Strengthen Carbon Pricing, Introduce a Climate Dividend, and Reduce Adaptation Costs</span>
+    <div class="meta">with Stefan Bach, Hermann Buslei and Peter Haan · DIW Weekly Report 23/2023</div>
+    <div class="versions">
+      <a class="btn" href="https://www.diw.de/de/diw_01.c.874223.de/publikationen/weekly_reports/2023_23_1/facilitating_the_transport_and_heating_transition__strengthe___g__introduce_a_climate_dividend__and_reduce_adaptation_costs.html">English Version</a>
+      <a class="btn" href="https://www.diw.de/de/diw_01.c.874122.de/publikationen/wochenberichte/2023_23_1/verkehrs-_und_waermewende__co___-bepreisung_staerken__klimageld_einfuehren__anpassungskosten_verringern.html">German Version</a></div>
+    <details><summary>Abstract</summary>
+      <p>Despite the easing of prices on the energy markets, private households continue to be burdened by elevated prices. The planned increase in the carbon price for transport and heating will raise the burden on private households even further. These additional costs are unequally distributed and have a regressive effect, as poor households must spend much more relative to their net income than rich households. Using the tax revenue from carbon pricing to fund a flat-rate climate dividend per person reduces this regressive effect substantially. However, low-income households with a high level of energy consumption, which are impacted in particular, need additional relief or more support in conserving energy. Adaptation responses to the higher prices are uncertain, but could result in emissions savings of up to 30 percent.</p>
+    </details>
+  </div>
+
+  <div class="item">
+    <span class="title">Heating and Electricity Expenses: Saving Incentives Not Impacting Basic Income Recipients</span>
+    <div class="meta">with Peter Haan, Stefan Bach and Wolf-Peter Schill · DIW Weekly Report 14/15/16/2023</div>
+    <div class="versions">
+      <a class="btn" href="https://www.diw.de/de/diw_01.c.870533.de/publikationen/weekly_reports/2023_14_1/heating_and_electricity_expenses__saving_incentives_not_impacting_basic_income_recipients.html">English Version</a>
+      <a class="btn" href="https://www.diw.de/de/diw_01.c.870439.de/publikationen/wochenberichte/2023_16_1/ausgaben_fuer_heizung_und_strom__sparanreize_greifen_nicht_fuer_menschen_in_der_grundsicherung.html">German Version</a></div>
+    <details><summary>Abstract</summary>
+      <p>Basic income benefits cover recipients’ actual heating expenses as long as they are not unusually high. In contrast, their electricity expenses are only covered via a lump sum at the standard rate. Thus, basic income recipients have weaker incentives for reducing their heating expenses than for reducing their electricity expenses. Using Socio-Economic Panel (SOEP) data, it can be seen that basic income households have higher electricity bills despite this incentive: On average, they spend five euros more on heating and nine euros more on electricity than comparable households not receiving basic income. These higher bills may be due to a lack of sufficient information about their expenses and ways to save energy, or they are unable to save due to non-energy efficient electrical appliances and longer attendance time at home. These interrelationships need to be taken into consideration when drawing up a climate policy that aims to provide savings incentives by increasing the CO<sub>2</sub> price; such a policy can only be effective if households are able to react to price incentives. Thus, in addition to increasing the CO<sub>2</sub> price, targeted subsidy programs for energy efficiency measures as well as information campaigns for households are needed.</p>
+    </details>
+  </div>
+
+  <div class="item">
+    <span class="title" lang="de">Verteilungswirkungen von finanziellen Unterstützungsmodellen für pflegende Angehörige</span>
+    <span class="trans">[Distributional Effects of Financial Support Models for Informal Caregivers]</span>
+    <div class="meta">with Johannes Geyer, Peter Haan and Mia Teschner · DIW Politikberatung kompakt 186 (2022) · commissioned by Sozialverband VdK</div>
+    <div class="versions">
+      <a class="btn" href="https://www.diw.de/de/diw_01.c.862520.de/publikationen/politikberatung_kompakt/2022_0186/verteilungswirkungen_von_finanziellen_unterstuetzungsmodelle_____gutachten_des_diw_berlin_im_auftrag_des_sozialverbands_vdk.html">German Version</a></div>
+    <details><summary>Abstract</summary>
+      <p>The financial situation of informal caregivers in Germany is increasingly a topic of public interest – specifically, their increased risk of poverty. At the same time, it is becoming apparent that the importance of informal care will continue to grow. While demographic change is driving demand for informal care, more and more people are having to combine work and caregiving due to higher female employment and increases in the retirement age. This reconciliation is often difficult, going hand in hand with reduced earned income. Caregivers have a significantly higher risk of poverty and are less likely to be active in the labor market. So far, there is no regulated monetary compensation scheme for informal caregivers, but discussions about possible wage replacement benefits have been on the political agenda for several years. In the following, the distributional effects of two models of compensation schemes are analyzed using the microsimulation method. The effects on the risk-of-poverty rate as a possible target of such a reform are discussed in particular. The first analyzed model of a caregiver wage replacement benefit is conceptually based on the parental allowance and depends on previous income. In our simulation, 1.5 million individuals are eligible for such a benefit, with most receiving only a base amount of €300. The net expenditure for such a reform is estimated at €5 billion per year. The caregiver wage replacement benefit increases the net income of caregivers by about 6%. The risk-of-poverty rate falls significantly to 15.6% and is roughly at the level of the population as a whole. As a comparison, a wage for informal caregivers is modeled in which caregivers are publicly employed for a fixed number of hours, depending on the care level of their relative. About 900,000 individuals benefit under this scenario, while incurring net costs of about 6.5 billion euros per year. The reform increases the net income of caregivers by 9% on average and the risk-of-poverty rate decreases to 13.4%, which is significantly below the overall population. Both models show that monetary compensation for caregivers can significantly reduce their risk-of-poverty rate.</p>
+    </details>
+  </div>
+
+  <div class="item">
+    <span class="title" lang="de">Hintergrund und Erfahrungen von kapitalgedeckten Alterssicherungssystemen mit automatischer Einschreibung und Abwahlmöglichkeit („Opt-out“) am Beispiel von NEST</span>
+    <span class="trans">[Background and Experiences of Funded Pension Systems with Automatic Enrollment and an Opt-out Option: The Example of NEST]</span>
+    <div class="meta">with Johannes Geyer and Peter Haan · DIW Politikberatung kompakt 182 (2022) · commissioned by the German Federal Ministry of Finance</div>
+    <div class="versions">
+      <a class="btn" href="https://www.diw.de/de/diw_01.c.849392.de/publikationen/politikberatung_kompakt/2022_0182/hintergrund_und_erfahrungen_von_kapitalgedeckten_alterssiche___ertise_im_auftrag_des_bundesministeriums_fuer_finanzen__bmf.html">German Version</a></div>
+    <details><summary>Abstract</summary>
+      <p>Retirement provision is becoming increasingly individualized, both internationally and in Germany: funded, defined-contribution schemes are gaining weight, shifting longevity and investment risks onto individuals. Yet participation in voluntary supplementary pensions remains low, particularly among groups at higher risk of old-age poverty, even when tax incentives are offered. Behavioral economics helps explain this gap: inertia, status quo bias and limited financial literacy lead many people to save too little. Automatic enrollment with an opt-out option uses this inertia to raise participation while preserving individual choice. In Germany, such a model has been possible since 2018 under the <em lang="de">Sozialpartnermodell</em> but has never been implemented. This report examines the British <em>National Employment Savings Trust</em> (NEST), introduced in stages by company size between 2012 and 2018. It combines a minimum contribution of 8 percent of qualifying earnings with a life-cycle default fund that about 99 percent of members keep. The number of employees saving in a workplace pension rose from 10.7 million in 2012 to 19.4 million in 2020, opt-out rates have remained around 10 percent, and gaps between large and small firms have narrowed considerably. Lessons for Germany include a gradual rollout, the integration of existing occupational schemes, and the central importance of well-designed default settings, since most savers never change them.</p>
+    </details>
+  </div>
+
+  </section>
+
+  <!-- ===================== TEACHING ===================== -->
+  <section id="teaching">
+  <h2>Teaching</h2>
+  <ul class="plain">
+    <li><span class="title">Empirical Public Economics</span> (Master) <span class="meta">· Winter Terms 2024/25, 2025/26</span></li>
+    <li><span class="title">Introduction to Statistics</span> <span class="meta">· Summer Terms 2020, 2021, 2022</span></li>
+    <li><span class="title">Statistical Inference</span> <span class="meta">· Winter Terms 2020/21, 2021/22</span></li>
+    <li><span class="title">Paradigms and Controversies of Economic Thought</span> <span class="meta">· Winter Terms 2018/19, 2019/20, 2020/21, 2021/22, 2022/23</span></li>
+    <li><span class="title">Financial Crises and Monetary Systems</span> <span class="meta">· Summer Terms 2018, 2019, 2020, 2021</span></li>
+  </ul>
+
+  </section>
+
+  <!-- ===================== OTHER ===================== -->
+  <section id="other">
+  <h2>Other</h2>
+  <h3>Organizing &amp; Service</h3>
+  <ul class="bullets">
+    <li><a href="https://berlinschoolofeconomics.de/event-details/2nd-berlin-phd-conference-in-economics">2nd Berlin PhD Conference in Economics</a>
+        <span class="meta">· Co-organizer · July 6–8, 2026</span>
+        <a class="btn" href="Berlin_PhD_Conference_applied.pdf">Program</a></li>
+    <li>PhD Admission Committee, Berlin School of Economics
+        <span class="meta">· Member · 2025</span></li>
+    <li><a href="https://www.rfberlin.com/event/bena-summer-wokshop-25/">BeNA Summer Workshop 2025</a>
+        <span class="meta">· Co-organizer · May 20, 2025 · RFBerlin</span></li>
+    <li>DIW Cluster Research Seminar
+        <span class="meta">· Co-organizer · 2024–2025</span></li>
+  </ul>
+  <h3>Software</h3>
+  <div class="item">
+    <span class="title">Fast Coarsened Exact Matching for Large Datasets in Stata</span>
+    <a class="btn" href="https://github.com/lfelderecon/cem_peede_felder">GitHub</a>
+    <div class="meta">with Lennert Peede</div>
+    <p>A Stata program that reproduces the match indicator and weights of the <code>cem</code> package
+    (Iacus, King &amp; Porro 2012) using only Stata’s built-in, sort-based commands. This makes coarsened
+    exact matching practical for administrative datasets with millions of observations: where
+    <code>cem</code> would take hours or even days, the program finishes in seconds to minutes.</p>
+  </div>
+
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact">
+  <h2>Contact</h2>
+  <address>
+    Lars Felder<br>
+    DIW Berlin<br>
+    Anton-Wilhelm-Amo-Str. 58<br>
+    10117 Berlin, Germany<br>
+    <a href="mailto:lfelder@diw.de">lfelder@diw.de</a>
+  </address>
+  </section>
+
+  <footer>Last updated: November 2026</footer>
+</main>
+<script>
+  /* Keep --nav-h equal to the nav bar's real height (it wraps on narrow screens),
+     so the sticky section headings sit directly beneath it. */
+  (function () {
+    var nav = document.querySelector('nav');
+    function setNavHeight() {
+      document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+    }
+    setNavHeight();
+    if (window.ResizeObserver) { new ResizeObserver(setNavHeight).observe(nav); }
+    else { window.addEventListener('resize', setNavHeight); }
+  })();
+
+  document.getElementById('theme-toggle').addEventListener('click', function () {
+    var root = document.documentElement;
+    var current = root.getAttribute('data-theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    var next = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+</script>
+</body>
+</html>
